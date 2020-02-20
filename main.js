@@ -11,9 +11,9 @@ function createSlots (ring) {
 		slot.style.transform = transform;
 		let a=Math.round(Math.random()*(slot_item))
 		let image = [
-			"/img/M00_000.jpg",
-			"/img/M01_000.jpg",
-			"/img/M02_000.jpg",
+			"img/M00_000.jpg",
+			"img/M01_000.jpg",
+			"img/M02_000.jpg",
 			"img/M03_000.jpg",
 			"img/M04_000.jpg",
 			"img/M05_000.jpg",
