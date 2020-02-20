@@ -1,7 +1,7 @@
 const slot_item = 12;
 const radius = 150;
 
-function createSlots (ring) {
+function createSlots (row) {
 	let slotAngle = 360 / slot_item;
 	let seed = getSeed();
 	for (let i = 0; i < slot_item; i ++) {
@@ -27,7 +27,7 @@ function createSlots (ring) {
 
 		];
 		let content = $(slot).append('<p>' + '<img src="'+image[a]+'">'+ '</p>');
-		ring.append(slot);
+		row.append(slot);
 	}
 }
 
@@ -38,7 +38,7 @@ function getSeed() {
 function spin(timer) {
 	for(let i = 1; i < 6; i ++) {
 		let oldSeed = '<img src="img/paw-solid.svg">';
-		let oldClass = $('#ring'+i).attr('class');
+		let oldClass = $('#row'+i).attr('class');
 		if(oldClass.length > 4) {
 			oldSeed = parseInt(oldClass.slice(10));
 			console.log(oldSeed);
@@ -47,20 +47,20 @@ function spin(timer) {
 		while(oldSeed == seed) {
 			seed = getSeed();
 		}
-		$('#ring'+i)
+		$('#row'+i)
 			.css('animation','back-spin 1s, spin-' + seed + ' ' + (timer + i*0.5) + 's')
-			.attr('class','ring spin-' + seed);
+			.attr('class','row spin-' + seed);
 	}
 
 	console.log('=====');
 }
 
 $(document).ready(function() {	
- 	createSlots($('#ring1'));
- 	createSlots($('#ring2'));
- 	createSlots($('#ring3'));
- 	createSlots($('#ring4'));
- 	createSlots($('#ring5')); 	
+ 	createSlots($('#row1'));
+ 	createSlots($('#row2'));
+ 	createSlots($('#row3'));
+ 	createSlots($('#row4'));
+ 	createSlots($('#row5')); 	
  	$('.go').on('click',function(){
  		let timer = 2;
  		spin(timer);
